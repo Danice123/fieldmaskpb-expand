@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package protos;
+option go_package = "github.com/Danice123/fieldmaskpb-expand/testprotos";
+
+message SimpleMessage {
+    string something = 1;
+    int64 somenumber = 2;
+    bool else_if = 3;
+    string cool_shit_idk = 4;
+}
