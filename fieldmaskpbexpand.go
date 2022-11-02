@@ -49,9 +49,7 @@ func allFieldsFromDescriptor(message protoreflect.MessageDescriptor) []string {
 	for i := 0; i < message.Fields().Len(); i++ {
 		field := message.Fields().Get(i)
 		switch field.Kind() {
-		case protoreflect.GroupKind:
-			fallthrough
-		case protoreflect.MessageKind:
+		case protoreflect.MessageKind, protoreflect.GroupKind:
 			childFields := allFieldsFromDescriptor(field.Message())
 			for _, c := range childFields {
 				fields = append(fields, field.TextName()+"."+c)
@@ -144,6 +142,9 @@ func ExpandWithIntermediateWildcards(m proto.Message, path string) ([]string, er
 				}
 			}
 			nodes = newNodes
+		}
+		if len(nodes) == 0 {
+			return nil, fmt.Errorf("path part %s is invalid", part)
 		}
 	}
 
