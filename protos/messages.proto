@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package protos;
+option go_package = "github.com/Danice123/fieldmaskpb-expand/protos";
+
+message SimpleMessage {
+    string one = 1;
+    int64 two = 2;
+    bool three = 3;
+    string four_nice = 4;
+}
+
+message NestedMessage {
+    SimpleMessage nested = 1;
+    string two = 2;
+}
+
+message DoubleNestedMessage {
+    NestedMessage double_one = 1;
+    NestedMessage double_two = 2;
+}

@@ -1,7 +1,5 @@
 
 proto:
-	go mod vendor
-	protoc --go_out=vendor protos/*.proto
-
-clean:
-	rm -r vendor
+	protoc --go_out=. protos/*.proto
+	mv github.com/Danice123/fieldmaskpb-expand/protos/* protos
+	rm -r github.com
