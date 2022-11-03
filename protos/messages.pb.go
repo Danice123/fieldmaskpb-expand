@@ -201,6 +201,195 @@ func (x *DoubleNestedMessage) GetDoubleTwo() *NestedMessage {
 	return nil
 }
 
+type MessageOneOf struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Types that are assignable to Simpleoneof:
+	//
+	//	*MessageOneOf_S
+	//	*MessageOneOf_I
+	//	*MessageOneOf_M
+	Simpleoneof isMessageOneOf_Simpleoneof `protobuf_oneof:"simpleoneof"`
+}
+
+func (x *MessageOneOf) Reset() {
+	*x = MessageOneOf{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protos_messages_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MessageOneOf) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MessageOneOf) ProtoMessage() {}
+
+func (x *MessageOneOf) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_messages_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MessageOneOf.ProtoReflect.Descriptor instead.
+func (*MessageOneOf) Descriptor() ([]byte, []int) {
+	return file_protos_messages_proto_rawDescGZIP(), []int{3}
+}
+
+func (m *MessageOneOf) GetSimpleoneof() isMessageOneOf_Simpleoneof {
+	if m != nil {
+		return m.Simpleoneof
+	}
+	return nil
+}
+
+func (x *MessageOneOf) GetS() string {
+	if x, ok := x.GetSimpleoneof().(*MessageOneOf_S); ok {
+		return x.S
+	}
+	return ""
+}
+
+func (x *MessageOneOf) GetI() int64 {
+	if x, ok := x.GetSimpleoneof().(*MessageOneOf_I); ok {
+		return x.I
+	}
+	return 0
+}
+
+func (x *MessageOneOf) GetM() *SimpleMessage {
+	if x, ok := x.GetSimpleoneof().(*MessageOneOf_M); ok {
+		return x.M
+	}
+	return nil
+}
+
+type isMessageOneOf_Simpleoneof interface {
+	isMessageOneOf_Simpleoneof()
+}
+
+type MessageOneOf_S struct {
+	S string `protobuf:"bytes,1,opt,name=s,proto3,oneof"`
+}
+
+type MessageOneOf_I struct {
+	I int64 `protobuf:"varint,2,opt,name=i,proto3,oneof"`
+}
+
+type MessageOneOf_M struct {
+	M *SimpleMessage `protobuf:"bytes,3,opt,name=m,proto3,oneof"`
+}
+
+func (*MessageOneOf_S) isMessageOneOf_Simpleoneof() {}
+
+func (*MessageOneOf_I) isMessageOneOf_Simpleoneof() {}
+
+func (*MessageOneOf_M) isMessageOneOf_Simpleoneof() {}
+
+type ListMessage struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	List []*SimpleMessage `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+}
+
+func (x *ListMessage) Reset() {
+	*x = ListMessage{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protos_messages_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMessage) ProtoMessage() {}
+
+func (x *ListMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_messages_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMessage.ProtoReflect.Descriptor instead.
+func (*ListMessage) Descriptor() ([]byte, []int) {
+	return file_protos_messages_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ListMessage) GetList() []*SimpleMessage {
+	if x != nil {
+		return x.List
+	}
+	return nil
+}
+
+type ComplexListMessage struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	List []*DoubleNestedMessage `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+}
+
+func (x *ComplexListMessage) Reset() {
+	*x = ComplexListMessage{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protos_messages_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ComplexListMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ComplexListMessage) ProtoMessage() {}
+
+func (x *ComplexListMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_messages_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ComplexListMessage.ProtoReflect.Descriptor instead.
+func (*ComplexListMessage) Descriptor() ([]byte, []int) {
+	return file_protos_messages_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ComplexListMessage) GetList() []*DoubleNestedMessage {
+	if x != nil {
+		return x.List
+	}
+	return nil
+}
+
 var File_protos_messages_proto protoreflect.FileDescriptor
 
 var file_protos_messages_proto_rawDesc = []byte{
@@ -225,11 +414,25 @@ var file_protos_messages_proto_rawDesc = []byte{
 	0x75, 0x62, 0x6c, 0x65, 0x4f, 0x6e, 0x65, 0x12, 0x34, 0x0a, 0x0a, 0x64, 0x6f, 0x75, 0x62, 0x6c,
 	0x65, 0x5f, 0x74, 0x77, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x4e, 0x65, 0x73, 0x74, 0x65, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x52, 0x09, 0x64, 0x6f, 0x75, 0x62, 0x6c, 0x65, 0x54, 0x77, 0x6f, 0x42, 0x30, 0x5a,
-	0x2e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x44, 0x61, 0x6e, 0x69,
-	0x63, 0x65, 0x31, 0x32, 0x33, 0x2f, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x6d, 0x61, 0x73, 0x6b, 0x70,
-	0x62, 0x2d, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x67, 0x65, 0x52, 0x09, 0x64, 0x6f, 0x75, 0x62, 0x6c, 0x65, 0x54, 0x77, 0x6f, 0x22, 0x64, 0x0a,
+	0x0c, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x4f, 0x6e, 0x65, 0x4f, 0x66, 0x12, 0x0e, 0x0a,
+	0x01, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52, 0x01, 0x73, 0x12, 0x0e, 0x0a,
+	0x01, 0x69, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x48, 0x00, 0x52, 0x01, 0x69, 0x12, 0x25, 0x0a,
+	0x01, 0x6d, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x73, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x48,
+	0x00, 0x52, 0x01, 0x6d, 0x42, 0x0d, 0x0a, 0x0b, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x6f, 0x6e,
+	0x65, 0x6f, 0x66, 0x22, 0x38, 0x0a, 0x0b, 0x4c, 0x69, 0x73, 0x74, 0x4d, 0x65, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x12, 0x29, 0x0a, 0x04, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65,
+	0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x04, 0x6c, 0x69, 0x73, 0x74, 0x22, 0x45, 0x0a,
+	0x12, 0x43, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x78, 0x4c, 0x69, 0x73, 0x74, 0x4d, 0x65, 0x73, 0x73,
+	0x61, 0x67, 0x65, 0x12, 0x2f, 0x0a, 0x04, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x1b, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x44, 0x6f, 0x75, 0x62, 0x6c,
+	0x65, 0x4e, 0x65, 0x73, 0x74, 0x65, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x04,
+	0x6c, 0x69, 0x73, 0x74, 0x42, 0x30, 0x5a, 0x2e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
+	0x6f, 0x6d, 0x2f, 0x44, 0x61, 0x6e, 0x69, 0x63, 0x65, 0x31, 0x32, 0x33, 0x2f, 0x66, 0x69, 0x65,
+	0x6c, 0x64, 0x6d, 0x61, 0x73, 0x6b, 0x70, 0x62, 0x2d, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x2f,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -244,21 +447,27 @@ func file_protos_messages_proto_rawDescGZIP() []byte {
 	return file_protos_messages_proto_rawDescData
 }
 
-var file_protos_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_protos_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_protos_messages_proto_goTypes = []interface{}{
 	(*SimpleMessage)(nil),       // 0: protos.SimpleMessage
 	(*NestedMessage)(nil),       // 1: protos.NestedMessage
 	(*DoubleNestedMessage)(nil), // 2: protos.DoubleNestedMessage
+	(*MessageOneOf)(nil),        // 3: protos.MessageOneOf
+	(*ListMessage)(nil),         // 4: protos.ListMessage
+	(*ComplexListMessage)(nil),  // 5: protos.ComplexListMessage
 }
 var file_protos_messages_proto_depIdxs = []int32{
 	0, // 0: protos.NestedMessage.nested:type_name -> protos.SimpleMessage
 	1, // 1: protos.DoubleNestedMessage.double_one:type_name -> protos.NestedMessage
 	1, // 2: protos.DoubleNestedMessage.double_two:type_name -> protos.NestedMessage
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0, // 3: protos.MessageOneOf.m:type_name -> protos.SimpleMessage
+	0, // 4: protos.ListMessage.list:type_name -> protos.SimpleMessage
+	2, // 5: protos.ComplexListMessage.list:type_name -> protos.DoubleNestedMessage
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_protos_messages_proto_init() }
@@ -303,6 +512,47 @@ func file_protos_messages_proto_init() {
 				return nil
 			}
 		}
+		file_protos_messages_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MessageOneOf); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_protos_messages_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListMessage); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_protos_messages_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ComplexListMessage); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+	}
+	file_protos_messages_proto_msgTypes[3].OneofWrappers = []interface{}{
+		(*MessageOneOf_S)(nil),
+		(*MessageOneOf_I)(nil),
+		(*MessageOneOf_M)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -310,7 +560,7 @@ func file_protos_messages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_protos_messages_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
